@@ -9,7 +9,7 @@ public class LobbyMenuManager : MonoBehaviour
     [Header("Panels")]
     public GameObject DeleteCharacterPanel;
     public GameObject CreateCharacterPanel;
-    public GameObject CharacterPanels;
+    public GameObject LobbyPanel;
 
     [Header("Delete Character")]
     [SerializeField]
@@ -45,21 +45,16 @@ public class LobbyMenuManager : MonoBehaviour
 
     public void CreateCharacterButton() {
         DeleteCharacterPanel.SetActive(false);
-        CharacterPanels.SetActive(false);
+        LobbyPanel.SetActive(false);
         CreateCharacterPanel.SetActive(true);
     }
 
     public void BackToCharacterSelect() {
-        CharacterPanels.SetActive(true);
+        LobbyPanel.SetActive(true);
         CreateCharacterPanel.SetActive(false);
     }
 
     public void ExitGame() {
         Application.Quit();
-    }
-
-    public void ConfirmCreateCharacter() {
-        //connect to database
-        //send the character info
     }
 }

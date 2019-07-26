@@ -80,7 +80,11 @@ public class ClientTCP : MonoBehaviour {
                 isConnected = false;
                 Debug.Log("Disconnected.");
                 UnityThread.executeInUpdate(() => {
-                    SceneManager.LoadScene("LoginScreen");
+                    LobbyMenuManager.instance.CreateCharacterPanel.SetActive(false);
+                    LobbyMenuManager.instance.LobbyPanel.SetActive(false);
+                    LoginMenuManager.instance.LoginScreen.SetActive(true);
+                    LoginMenuManager.instance.ErrorText.text = "You have been disconnected from the server";
+                    LoginMenuManager.instance.ErrorText.gameObject.SetActive(true);
                 });
                 return;
             }
@@ -112,6 +116,7 @@ public class ClientTCP : MonoBehaviour {
 
     #region sendData
 
+    
 
     #endregion
 }

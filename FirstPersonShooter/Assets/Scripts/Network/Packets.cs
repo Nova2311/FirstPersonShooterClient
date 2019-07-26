@@ -3,17 +3,11 @@
     DB_EmailExistsError,
     DB_IncorrectLoginDetails,
     DB_ConfirmLoginDetails,
-}
-
-public enum MatchmakingServerPackets {
-
-}
-
-public enum GameServerPackets {
-
+    DB_CharacterNameExists,
 }
 
 public enum ClientPackets {
     C_LoginCredentials,
     C_CreateAccountDetails,
+    C_CreateCharacterDetails,
 }

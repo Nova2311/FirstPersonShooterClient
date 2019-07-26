@@ -54,10 +54,11 @@ public class LoginMenuManager : MonoBehaviour
         ErrorText.gameObject.SetActive(false);
         ClientTCP.instance.Connect("192.168.0.115", 5557);
 
-        if (CA_PasswordInput != CA_ConfirmPasswordInput) {
-            ErrorText.text = "Password's do not match";
-            ErrorText.gameObject.SetActive(true);
-        }
+        //if (CA_PasswordInput != CA_ConfirmPasswordInput) {
+        //    ErrorText.text = "Password's do not match";
+        //    ErrorText.gameObject.SetActive(true);
+        //    return;
+        //}
 
         ByteBuffer buffer = new ByteBuffer();
         buffer.WriteLong((long)ClientPackets.C_CreateAccountDetails);

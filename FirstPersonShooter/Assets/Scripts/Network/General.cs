@@ -7,6 +7,7 @@ using System.Threading;
 public class General : MonoBehaviour
 {
     public static General instance;
+    public int AccountID;
 
     // Use this for initialization
     void Start()

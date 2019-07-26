@@ -26,7 +26,7 @@ public class ClientHandleData : MonoBehaviour {
             { (long)DatabaseServerPackets.DB_EmailExistsError, EmailExistsError },
             { (long)DatabaseServerPackets.DB_UsernameExistsError, UsernameExistsError },
             { (long)DatabaseServerPackets.DB_IncorrectLoginDetails, IncorrectLoginDetails },
-            { (long)DatabaseServerPackets.DB_ConfirmLoginDetails, IncorrectLoginDetails },
+            { (long)DatabaseServerPackets.DB_ConfirmLoginDetails, ConfirmLoginDetails },
 
         };
     }
@@ -100,7 +100,14 @@ public class ClientHandleData : MonoBehaviour {
         LoginMenuManager.instance.ErrorText.text = "Incorrect Username or Password. Please try again";
         LoginMenuManager.instance.ErrorText.gameObject.SetActive(true);
     }
+
     void ConfirmLoginDetails(byte[] data) {
+        ByteBuffer buffer = new ByteBuffer();
+        buffer.WriteBytes(data);
+        long packet = buffer.ReadLong();
+        int AccountID = buffer.ReadInteger();
+        General.instance.AccountID = AccountID;
+
         //load the lobby
         LoginMenuManager.instance.Lobby.SetActive(true);
         LoginMenuManager.instance.LoginScreen.SetActive(false);
